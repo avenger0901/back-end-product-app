@@ -1,4 +1,5 @@
-cars = [
+
+module.exports = [
     { brand:'toyota',
         year: '2020',
         type: 'SUV',
