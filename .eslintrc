@@ -8,6 +8,8 @@
     "sourceType": "module"
   },
   "env": {
+    "node":true,
+    "jest":true,
     "browser": true,
     "es6": true
   },
@@ -16,7 +18,7 @@
   },
   "rules": {
     "eqeqeq": ["error", "always"],
-    "no-console": "warn",
+    "no-console": "off",
     "indent": [
       "error",
       4,
