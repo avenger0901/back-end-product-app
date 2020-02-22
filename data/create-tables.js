@@ -13,6 +13,10 @@ async function run() {
         await client.connect();
         // run a query to create tables
         await client.query(`
+            CREATE TABLE types (
+                id SERIAL PRIMARY KEY NOT NULL,
+                name VARCHAR(256) NOT NULL
+            );
             CREATE TABLE cars (
                 id SERIAL PRIMARY KEY NOT NULL,
                 brand VARCHAR(256) NOT NULL,
@@ -21,7 +25,7 @@ async function run() {
                 image VARCHAR(256) NOT NULL,
                 year INTEGER NOT NULL,
                 price INTEGER NOT NULL
-            );
+            ); 
         `);
         console.log('create tables complete');
     }

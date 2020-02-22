@@ -37,6 +37,7 @@ app.get('/api/cars', async(req, res) => {
         });
     }
 });
+//Get another route for a specific product (then go to create table to create another talbe )
 // Start the server
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);
