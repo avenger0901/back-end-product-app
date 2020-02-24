@@ -1,6 +1,6 @@
 
 module.exports = [
-    { id:1,
+    {
         brand:'toyota',
         year: '2020',
         type: 'SUV',
@@ -8,7 +8,7 @@ module.exports = [
         image:'https://i.ytimg.com/vi/3KxsXJWJP0Y/maxresdefault.jpg',
         price: 25000,
     },
-    { id:2,
+    {
         brand:'BMW',
         year: '2020',
         type: 'sport',
@@ -16,7 +16,7 @@ module.exports = [
         image:'https://i.pinimg.com/originals/a1/2c/e7/a12ce70036e1514de400f16f036a5a2b.jpg',
         price: 35000,
     },
-    { id:3,
+    {
         brand:'honda',
         year: '2020',
         type: 'sedan',
@@ -24,7 +24,7 @@ module.exports = [
         image:'https://countersteer.my/wp-content/uploads/2017/03/ctr_08.jpg',
         price: 22000,
     },
-    { id:4,
+    {
         brand:'Mercedes',
         year: '2020',
         type: 'SUV',
@@ -32,7 +32,7 @@ module.exports = [
         image:'https://cdn.motor1.com/images/mgl/2or1E/s1/mercedes-g-class-stronger-than-time.jpg',
         price: 125000,
     },
-    { id:5,
+    {
         brand:'audi',
         year: '2020',
         type: 'sport',
@@ -40,7 +40,7 @@ module.exports = [
         image:'https://fancytuning.com/wp-content/uploads/2012/11/regula-tuning-audi-r8-grandiose-styling-kit-1-1024x569.jpg',
         price: 135000,
     },
-    { id:6,
+    {
         brand:'ford',
         year: '2020',
         type: 'sedan',
@@ -48,7 +48,7 @@ module.exports = [
         image:'https://images.hgmsites.net/hug/2020-ford-fusion_100710637_h.jpg',
         price: 28000,
     },
-    { id:7,
+    {
         brand:'jaguar',
         year: '2020',
         type: 'SUV',
@@ -56,7 +56,7 @@ module.exports = [
         image:'https://media.wired.com/photos/5abc18e3b9570a67ba0334ee/125:94/w_2393,h_1800,c_limit/Jaguar-03.jpg',
         price: 95000,
     },
-    { id:8,
+    { 
         brand:'dodge',
         year: '2020',
         type: 'sedan',

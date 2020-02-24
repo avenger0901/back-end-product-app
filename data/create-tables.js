@@ -14,13 +14,13 @@ async function run() {
         // run a query to create tables
         await client.query(`
             CREATE TABLE types (
-                id SERIAL PRIMARY KEY NOT NULL,
+                type_id SERIAL PRIMARY KEY NOT NULL,
                 name VARCHAR(256) NOT NULL
             );
             CREATE TABLE cars (
                 id SERIAL PRIMARY KEY NOT NULL,
                 brand VARCHAR(256) NOT NULL,
-                type VARCHAR(256) NOT NULL,
+                type INTEGER NOT NULL REFERENCES types(type_id),
                 model VARCHAR(256) NOT NULL,
                 image VARCHAR(256) NOT NULL,
                 year INTEGER NOT NULL,
