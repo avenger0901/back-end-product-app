@@ -15,28 +15,51 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(morgan('dev')); // http logging
 app.use(cors()); // enable CORS request
-// API Routes
-app.get('/api/cars', async(req, res) => {
+app.use(express.static('public')); // server files from /public folder
+app.use(express.json()); // enable reading incoming json data
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.get('/api/cars', async (req, res) => {
     try {
         const result = await client.query(`
             SELECT
-            id,
-            brand,
-            year, 
-            type,
-            model,
-            image,
-            price
-        FROM cars;
+                c.*,
+                t.name as type
+            FROM cars c
+            JOIN types t
+            ON   c.type_id = t.id
+            ORDER BY c.year;
         `);
-        console.log(result.rows);
         res.json(result.rows);
-    } catch (err) {
+    }
+    catch (err) {
+        console.log(err);
         res.status(500).json({
             error: err.message || err
         });
     }
 });
+// API Routes
+// app.get('/api/cars', async(req, res) => {
+//     try {
+//         const result = await client.query(`
+//             SELECT
+//             id,
+//             brand,
+//             year, 
+//             type,
+//             model,
+//             image,
+//             price
+//         FROM cars;
+//         `);
+//         console.log(result.rows);
+//         res.json(result.rows);
+//     } catch (err) {
+//         res.status(500).json({
+//             error: err.message || err
+//         });
+//     }
+// });
 //Get another route for a specific product (then go to create table to create another talbe )
 // Start the server
 app.listen(PORT, () => {
