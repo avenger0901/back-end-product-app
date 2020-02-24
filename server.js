@@ -52,7 +52,7 @@ app.post('/api/cars', async(req, res) => {
             [
                 req.body.brand,
                 req.body.year,
-                req.body.type_id,
+                req.body.type,
                 req.body.model,
                 req.body.image,
                 req.body.price
@@ -88,7 +88,7 @@ app.get('/api/car/:myCarId', async(req, res) => {
     }
 });
 
-app.get('/api/types', async (req, res) => {
+app.get('/api/types', async(req, res) => {
     try {
         const result = await client.query(`
           SELECT *
