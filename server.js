@@ -36,6 +36,41 @@ app.get('/api/cars', async(req, res) => {
         });
     }
 });
+app.get('/api/car/:myCarId', async(req, res) => {
+    try {
+        const result = await client.query(`
+          SELECT *
+          FROM cars
+          WHERE cars.id=$1`, 
+          // the second parameter is an array of values to be SANITIZED then inserted into the query
+          // i only know this because of the `pg` docs
+        [req.params.myCarId]);
+
+        res.json(result.rows);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get('/api/types', async(req, res) => {
     try {
         const result = await client.query(`
