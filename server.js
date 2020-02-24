@@ -17,7 +17,7 @@ app.use(cors()); // enable CORS request
 app.use(express.static('public')); // server files from /public folder
 app.use(express.json()); // enable reading incoming json data
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.get('/api/cars', async (req, res) => {
+app.get('/api/cars', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT
@@ -45,7 +45,7 @@ app.post('/api/cars', async(req, res) => {
             `
 
         INSERT INTO cars (brand,year, type,model,image,price)
-                    VALUES ($1, $2, $3, $4, $5, $6);
+                    VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
         `,
 
