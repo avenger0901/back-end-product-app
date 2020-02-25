@@ -87,6 +87,21 @@ app.get('/api/car/:myCarId', async(req, res) => {
         });
     }
 });
+app.delete('/api/car/:myCarId', async(req, res) => {
+    try {
+        const result = await client.query(`
+      DELETE FROM cars where id = ${req.params.myCarId} 
+      `);
+
+        res.json(result.rows);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
 
 app.get('/api/types', async(req, res) => {
     try {
