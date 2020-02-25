@@ -77,7 +77,7 @@ app.put('/api/cars', async(req, res) => {
               year = '${req.body.year}', 
               type = '${req.body.type}', 
               model = '${req.body.model}',
-              type_id = '${req.body.type_id}'
+              type_id = '${req.body.type_id}',
               price = '${req.body.price}'
           WHERE id = ${req.body.id};
       `,
