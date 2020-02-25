@@ -66,6 +66,32 @@ app.post('/api/cars', async(req, res) => {
         });
     }
 });
+app.put('/api/cars', async(req, res) => {
+  // using req.body instead of req.params or req.query (which belong to /GET requests)
+    try {
+        console.log(req.body);
+      // make a new cat out of the cat that comes in req.body;
+        const result = await client.query(`
+          UPDATE cars
+          SET brand = '${req.body.brand}', 
+              year = '${req.body.year}', 
+              type = '${req.body.type}', 
+              model = '${req.body.model}',
+              type_id = '${req.body.type_id}'
+              price = '${req.body.price}', 
+          WHERE id = ${req.body.id};
+      `,
+        );
+
+        res.json(result.rows[0]); // return just the first result of our query
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
 
 app.get('/api/car/:myCarId', async(req, res) => {
     try {
